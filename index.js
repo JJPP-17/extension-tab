@@ -11,6 +11,7 @@ let leadsFromlocalstorage = JSON.parse(localStorage.getItem("myLeads"))
 tabBtn.addEventListener("click", function() {
     // Grab the url of the current tab
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        console.log(tabs)
         myLeads.push(tabs[0].url)
         localStorage.setItem("myLeads", JSON.stringify(myLeads))
         render(myLeads)
